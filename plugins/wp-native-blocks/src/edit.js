@@ -11,8 +11,8 @@ import {__} from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import {useBlockProps, RichText} from '@wordpress/block-editor';
-
+import {useBlockProps, RichText, MediaUpload, MediaUploadCheck} from '@wordpress/block-editor';
+import {PanelBody, TextControl, Button} from '@wordpress/components';
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -40,15 +40,30 @@ export default function Edit({attributes, setAttributes}) {
 		imageUrl
 	} = attributes;
 
+	const selectImage = ({id, url}) => {
+		setAttributes({
+			imageId: id,
+			imageUrl: url
+		});
+	}
+
 	return (
 		<div {...useBlockProps()}>
 			<div className="two-halves-block">
 				<div className="image_id-side">
-					<img fetchpriority="high" decoding="async" width="640" height="427"
-						 src="http://wp-blocks.local/wp-content/uploads/2024/05/dog-7719758_640.jpg"
-						 className="attachment-full size-full" alt=""
-						 srcSet="http://wp-blocks.local/wp-content/uploads/2024/05/dog-7719758_640.jpg 640w, http://wp-blocks.local/wp-content/uploads/2024/05/dog-7719758_640-300x200.jpg 300w"
-						 sizes="(max-width: 640px) 100vw, 640px"/></div>
+					<MediaUploadCheck>
+						<MediaUpload
+							onSelect={selectImage}
+							value={ imageId }
+							render={ ( { open } ) => (
+								<Button onClick={ open }>Open Media Library</Button>
+							) }
+						/>
+						{imageUrl && (
+							<img src={imageUrl} />
+						)}
+					</MediaUploadCheck>
+				</div>
 				<div className="content-side">
 					<RichText
 						tagName="div"
