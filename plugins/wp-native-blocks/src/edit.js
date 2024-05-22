@@ -11,7 +11,7 @@ import {__} from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import {useBlockProps, RichText, MediaUpload, MediaUploadCheck} from '@wordpress/block-editor';
+import {useBlockProps, RichText, MediaUpload, MediaUploadCheck, InspectorControls} from '@wordpress/block-editor';
 import {PanelBody, TextControl, Button} from '@wordpress/components';
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -36,13 +36,13 @@ export default function Edit({attributes, setAttributes}) {
 		description,
 		buttonText,
 		buttonUrl,
-		imageId,
+		imageID,
 		imageUrl
 	} = attributes;
 
 	const selectImage = ({id, url}) => {
 		setAttributes({
-			imageId: id,
+			imageID: id,
 			imageUrl: url
 		});
 	}
@@ -63,7 +63,7 @@ export default function Edit({attributes, setAttributes}) {
 					<MediaUploadCheck>
 						<MediaUpload
 							onSelect={selectImage}
-							value={ imageId }
+							value={ imageID }
 							render={ ( { open } ) => (
 								<Button onClick={ open }>Open Media Library</Button>
 							) }
