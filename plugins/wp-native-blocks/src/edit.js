@@ -11,7 +11,8 @@ import {__} from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import {useBlockProps, RichText} from '@wordpress/block-editor';
+import {useBlockProps, RichText, InspectorControls} from '@wordpress/block-editor';
+import {PanelBody, TextControl} from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -35,13 +36,22 @@ export default function Edit({attributes, setAttributes}) {
 		title,
 		description,
 		buttonText,
-		buttonLink,
+		buttonUrl,
 		imageId,
 		imageUrl
 	} = attributes;
 
 	return (
 		<div {...useBlockProps()}>
+			<InspectorControls>
+				<PanelBody title="CTA Settings">
+					<TextControl
+						value={buttonUrl}
+						label={__('Button Link')}
+						onChange={(newButtonUrl) => setAttributes({buttonUrl: newButtonUrl})}
+					></TextControl>
+				</PanelBody>
+			</InspectorControls>
 			<div className="two-halves-block">
 				<div className="image_id-side">
 					<img fetchpriority="high" decoding="async" width="640" height="427"
