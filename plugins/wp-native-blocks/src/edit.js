@@ -35,7 +35,7 @@ export default function Edit({attributes, setAttributes}) {
 		title,
 		description,
 		buttonText,
-		buttonLink,
+		buttonUrl,
 		imageId,
 		imageUrl
 	} = attributes;
@@ -49,6 +49,15 @@ export default function Edit({attributes, setAttributes}) {
 
 	return (
 		<div {...useBlockProps()}>
+			<InspectorControls>
+				<PanelBody title="CTA Settings">
+					<TextControl
+						value={buttonUrl}
+						label={__('Button Link')}
+						onChange={(newButtonUrl) => setAttributes({buttonUrl: newButtonUrl})}
+					></TextControl>
+				</PanelBody>
+			</InspectorControls>
 			<div className="two-halves-block">
 				<div className="image_id-side">
 					<MediaUploadCheck>
