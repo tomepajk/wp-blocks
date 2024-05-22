@@ -31,11 +31,34 @@ import './editor.scss';
  */
 export default function Edit() {
 	return (
-		<p { ...useBlockProps() }>
-			{ __(
-				'Wp Native Blocks – hello from the editor!',
-				'wp-native-blocks'
-			) }
-		</p>
+		<div {...useBlockProps()}>
+			<div className="two-halves-block">
+				<div className="image_id-side">
+					<img fetchpriority="high" decoding="async" width="640" height="427"
+						 src="http://wp-blocks.local/wp-content/uploads/2024/05/dog-7719758_640.jpg"
+						 className="attachment-full size-full" alt=""
+						 srcSet="http://wp-blocks.local/wp-content/uploads/2024/05/dog-7719758_640.jpg 640w, http://wp-blocks.local/wp-content/uploads/2024/05/dog-7719758_640-300x200.jpg 300w"
+						 sizes="(max-width: 640px) 100vw, 640px"/></div>
+				<div className="content-side">
+					<div className="eyebrow">
+						Eyebrow
+					</div>
+					<h2 className="title">
+						Title
+					</h2>
+					<p className="description">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+						labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+						laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+						voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+						non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</p>
+					<a className="button" href="https://www.google.com">
+						Click Here
+					</a>
+				</div>
+			</div>
+
+		</div>
 	);
 }

@@ -52,9 +52,34 @@ __webpack_require__.r(__webpack_exports__);
  * @return {Element} Element to render.
  */
 function Edit() {
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Wp Native Blocks – hello from the editor!', 'wp-native-blocks'));
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "two-halves-block"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "image_id-side"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    fetchpriority: "high",
+    decoding: "async",
+    width: "640",
+    height: "427",
+    src: "http://wp-blocks.local/wp-content/uploads/2024/05/dog-7719758_640.jpg",
+    className: "attachment-full size-full",
+    alt: "",
+    srcSet: "http://wp-blocks.local/wp-content/uploads/2024/05/dog-7719758_640.jpg 640w, http://wp-blocks.local/wp-content/uploads/2024/05/dog-7719758_640-300x200.jpg 300w",
+    sizes: "(max-width: 640px) 100vw, 640px"
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "content-side"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "eyebrow"
+  }, "Eyebrow"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+    className: "title"
+  }, "Title"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "description"
+  }, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    className: "button",
+    href: "https://www.google.com"
+  }, "Click Here"))));
 }
 
 /***/ }),
@@ -223,7 +248,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/wp-native-blocks","version":"0.1.0","title":"Wp Native Blocks","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false},"textdomain":"wp-native-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/wp-native-blocks","version":"0.1.0","title":"Wp Native Blocks","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false},"attributes":{"eyebrow":{"type":"string","default":""},"title":{"type":"string","default":""},"description":{"type":"string","default":""},"buttonText":{"type":"string","default":""},"buttonUrl":{"type":"string","default":""},"imageUrl":{"type":"string","default":""},"imageID":{"type":"number"}},"textdomain":"wp-native-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","render":"file:./render.php"}');
 
 /***/ })
 
