@@ -51,7 +51,19 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @return {Element} Element to render.
  */
-function Edit() {
+function Edit({
+  attributes,
+  setAttributes
+}) {
+  const {
+    eyebrow,
+    title,
+    description,
+    buttonText,
+    buttonLink,
+    imageId,
+    imageUrl
+  } = attributes;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -70,16 +82,40 @@ function Edit() {
     sizes: "(max-width: 640px) 100vw, 640px"
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "content-side"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "eyebrow"
-  }, "Eyebrow"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
-    className: "title"
-  }, "Title"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "description"
-  }, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    tagName: "div",
+    value: eyebrow,
+    className: "eyebrow",
+    placeholder: "Add Eyebrow",
+    onChange: newEyebrow => setAttributes({
+      eyebrow: newEyebrow
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    tagName: "div",
+    value: title,
+    className: "title",
+    placeholder: "Add Eyebrow",
+    Tutke: true,
+    onChange: newTitle => setAttributes({
+      title: newTitle
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    tagName: "div",
+    value: description,
+    className: "description",
+    placeholder: "Add Description",
+    onChange: newDescription => setAttributes({
+      description: newDescription
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    tagName: "div",
     className: "button",
-    href: "https://www.google.com"
-  }, "Click Here"))));
+    value: buttonText,
+    placeholder: "Add Button Text",
+    onChange: newButtonText => setAttributes({
+      buttonText: newButtonText
+    })
+  }))));
 }
 
 /***/ }),

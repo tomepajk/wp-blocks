@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
+import {__} from '@wordpress/i18n';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import {useBlockProps, RichText} from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -29,7 +29,17 @@ import './editor.scss';
  *
  * @return {Element} Element to render.
  */
-export default function Edit() {
+export default function Edit({attributes, setAttributes}) {
+	const {
+		eyebrow,
+		title,
+		description,
+		buttonText,
+		buttonLink,
+		imageId,
+		imageUrl
+	} = attributes;
+
 	return (
 		<div {...useBlockProps()}>
 			<div className="two-halves-block">
@@ -40,22 +50,37 @@ export default function Edit() {
 						 srcSet="http://wp-blocks.local/wp-content/uploads/2024/05/dog-7719758_640.jpg 640w, http://wp-blocks.local/wp-content/uploads/2024/05/dog-7719758_640-300x200.jpg 300w"
 						 sizes="(max-width: 640px) 100vw, 640px"/></div>
 				<div className="content-side">
-					<div className="eyebrow">
-						Eyebrow
-					</div>
-					<h2 className="title">
-						Title
-					</h2>
-					<p className="description">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-						labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-						laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-						voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-						non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</p>
-					<a className="button" href="https://www.google.com">
-						Click Here
-					</a>
+					<RichText
+						tagName="div"
+						value={eyebrow}
+						className="eyebrow"
+						placeholder="Add Eyebrow"
+						onChange={(newEyebrow) => setAttributes({eyebrow: newEyebrow})}
+					/>
+
+					<RichText
+						tagName="div"
+						value={title}
+						className="title"
+						placeholder="Add Eyebrow"
+						Tutke
+						onChange={(newTitle) => setAttributes({title: newTitle})}
+					/>
+					<RichText
+						tagName="div"
+						value={description}
+						className="description"
+						placeholder="Add Description"
+						onChange={(newDescription) => setAttributes({description: newDescription})}
+					/>
+
+					<RichText
+						tagName="div"
+						className="button"
+						value={buttonText}
+						placeholder="Add Button Text"
+						onChange={(newButtonText) => setAttributes({buttonText: newButtonText})}
+					/>
 				</div>
 			</div>
 
