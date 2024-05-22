@@ -30,7 +30,7 @@ if (!defined('ABSPATH')) {
 
 // Save the ACF JSON folder in the plugin
 function wp_blocks_acf_json_save_point( $path ) {
-	$path = plugin_dir_path(__FILE__) . 'acf-json';
+	$path = plugin_dir_path(__FILE__) . '/acf-json';
 	return $path;
 }
 add_filter('acf/settings/save_json', 'wp_blocks_acf_json_save_point');
@@ -43,7 +43,6 @@ add_filter('acf/settings/save_json', 'wp_blocks_acf_json_save_point');
  * @return array The modified paths.
  */
 function wp_blocks_acf_json_load_point( $paths ) {
-	unset($paths[0]); // Remove original path (optional).
 	$paths[] = plugin_dir_path(__FILE__) . 'acf-json';
 	return $paths;
 }
